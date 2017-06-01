@@ -1,6 +1,4 @@
-# antd-mobile with webpack
-
-basic webpack proj demo
+# A project using express + antd-mobile
 
 ### Install
 
