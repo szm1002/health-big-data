@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrouserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import MainPage from './components/mainPage';
-import ChronicPage from './components/chronicPage';
-import CancerPage from './components/cancerPage';
+// import ChronicPage from './components/chronicPage';
+// import CancerPage from './components/cancerPage';
 
 // import 'antd-mobile/lib/button/style/index.css';
 // import Button from 'antd-mobile/lib/button';
@@ -18,7 +18,7 @@ import CancerPage from './components/cancerPage';
 // import Modal from './components/Modal';
 // import Popup from './components/Popup';
 
-import './index.less';
+// import './index.less';
 
 /*const App = React.createClass({
   render() {
@@ -40,12 +40,28 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Route exact path="/" component={MainPage} />
-        <Route path="/chronic" component={ChronicPage} />
-        <Route path="/cancer" component={CancerPage} />
+        <div>
+          Hello root.
+          <p><Link to="/cancer">cancer</Link></p>
+
+            <Route exact path="/" component={MainPage} />
+            <Route path="/chronic" component={MainPage} />
+            <Route path="/cancer" component={MainPage} />
+
+        </div>
       </Router>
     );
   }
 };
+
+// class App extends React.Component {
+//   render() {
+//     return (
+//         <div>
+//           Hello root.
+//         </div>
+//     );
+//   }
+// };
 
 ReactDOM.render(<App />, document.getElementById('app'));
