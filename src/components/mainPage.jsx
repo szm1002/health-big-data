@@ -9,7 +9,7 @@ class MainPage extends React.Component {
   render() {
     return (
       <div className="container" id="container">
-        hello outer.
+        hello main.
         <div className="body">
 
 

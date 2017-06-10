@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import MainPage from './components/mainPage';
+import NavMenuTest from './components/navMenuTest';
 // import ChronicPage from './components/chronicPage';
 // import CancerPage from './components/cancerPage';
 
@@ -18,7 +19,7 @@ import MainPage from './components/mainPage';
 // import Modal from './components/Modal';
 // import Popup from './components/Popup';
 
-// import './index.less';
+import './index.less';
 
 /*const App = React.createClass({
   render() {
@@ -41,13 +42,12 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          Hello root.
-          <p><Link to="/cancer">cancer</Link></p>
-
+          <header>
+            <NavMenuTest />
+          </header>
+          <main>
             <Route exact path="/" component={MainPage} />
-            <Route path="/chronic" component={MainPage} />
-            <Route path="/cancer" component={MainPage} />
-
+          </main>
         </div>
       </Router>
     );
