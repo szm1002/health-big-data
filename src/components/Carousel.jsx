@@ -5,19 +5,19 @@ export default class My extends React.Component {
     const data = [
       {
         img: 'http://img.fancyedu.com/sys/ic/operation/1482377088291_banner1.png',
-        link: 'lessonDetail'
+        link: '/'
       },
       {
         img: 'http://img.fancyedu.com/sys/ic/operation/1482377088291_banner1.png',
-        link: 'lessonDetail'
+        link: '/chronic'
       },
       {
         img: 'http://img.fancyedu.com/sys/ic/operation/1482377088291_banner1.png',
-        link: 'lessonDetail'
+        link: '/cancer'
       }
     ];
     return (
-      <Carousel dots infinite selectedIndex={1} className="xxx" style={{ backgroundColor: 'blue', margin: 10 }}>
+      <Carousel dots autoplay infinite selectedIndex={0} className="my-carousel" style={{ backgroundColor: 'blue', margin: 0 }}>
         {data.map((d, i) => {
           return <a href={d.link} key={i}><img style={{ verticalAlign: 'top' }} src={d.img}/></a>;
         })}

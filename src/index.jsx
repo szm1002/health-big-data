@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // import 'antd-mobile/lib/button/style/index.css';
 // import Button from 'antd-mobile/lib/button';
@@ -13,22 +14,23 @@ import RefreshControl from './components/RefreshControl';
 import Modal from './components/Modal';
 import Popup from './components/Popup';
 
+import Drawer from './components/Drawer';
+
 import './index.less';
 
-const App = React.createClass({
+class App extends React.Component {
   render() {
     const items = [{id: '1'}, {id: 'header'}];
-    return (<div className="container" id="container">
+    return (
+      <div className="container" id="container">
       <div className="body">
-        <Misc />
-        <Carousel />
-        <Modal /> <Popup />
-        <Form /> <hr />
-        <RefreshControl /> <hr />
+
+        <Drawer />
+
       </div>
       <div className="fixed-bottom">底部固定条</div>
     </div>);
   }
-})
+}
 
 ReactDOM.render(<App />, document.getElementById('example'));
