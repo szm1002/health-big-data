@@ -28,7 +28,7 @@ class App extends React.Component {
         <Drawer />
 
       </div>
-      <div className="fixed-bottom">底部固定条</div>
+
     </div>);
   }
 }
