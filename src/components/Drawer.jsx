@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Drawer, List, NavBar } from 'antd-mobile';
 
-import Form from './Form';
+// import Form from './Form';
+import Form from './FormTest';
 import Modal from './Modal';
 import Carousel from './Carousel';
 

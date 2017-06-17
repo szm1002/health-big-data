@@ -9,9 +9,10 @@ import { Picker, DatePicker, List, Checkbox, Radio, InputItem } from 'antd-mobil
 
 const CheckboxItem = Checkbox.CheckboxItem;
 const RadioItem = Radio.RadioItem;
+const Item = List.Item;
 
 // 如果不是使用 List.Item 作为 children
-const CustomChildren = (props) => {
+/*const CustomChildren = (props) => {
   return (
     <div
       onClick={props.onClick}
@@ -21,50 +22,104 @@ const CustomChildren = (props) => {
       <span style={{ float: 'right' }}>{props.extra}</span>
     </div>
   );
-};
+};*/
 
-let Test = React.createClass({
-  getInitialState() {
-    return {
-      pickerValue: [],
-      // pickerValue: ['340000', '340800', '340824']
-      // dpValue: moment(),
-      dpValue: null,
-    }
-  },
+class Test extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      gender: ['male'],
+      age: '',
+      height: '',
+      weight: '',
+      selfHighPressure: false,
+      relativesHighPressure: false
+    };
+  }
+
   render() {
     const { getFieldProps } = this.props.form;
-    const { pickerValue, dpValue } = this.state;
-    return (<div className="form">
+    // const { gender } = this.state;
+    const genderOptions = [
+      {label: '男', value: 'male'},
+      {label: '女', value: 'female'},
+    ];
+    const generalOptions = [
+      {label: '是', value: true},
+      {label: '否', value: false}
+    ];
+
+    return (<form className="form">
       <List renderHeader={() => <b>慢病风险分析问卷</b>}>
-        <Picker data={district} cols={1} {...getFieldProps('district3')} className="forss">
-          <List.Item arrow="horizontal">您的性别:</List.Item>
+        <Picker
+          data={genderOptions}
+          cols={1}
+          title="选择性别"
+          value={this.state.gender}
+          onChange={v => {this.setState({gender: v})}}>
+          <Item arrow="horizontal" onClick={() => {}}>您的性别:</Item>
         </Picker>
-        <InputItem type="number">您的年龄：</InputItem>
-        <CheckboxItem onChange={(e) => console.log('checkbox', e)}>
-          CheckboxItem
-        </CheckboxItem>
-        <Picker extra="请选择(可选)" data={district} title="选择地区" {...getFieldProps('district', {
-          initialValue: ['340000', '340800', '340824'],
-        })}
-        >
-          <List.Item arrow="horizontal">省市区选择</List.Item>
+        <InputItem
+          type="number"
+          {...getFieldProps('age', {
+            rules: [
+              {required: true, message: '请输入您的年龄'},
+            ]
+          })}
+          onChange={v => this.setState({age: v})}
+          clear
+          placeholder="请输入您的年龄"
+          extra="岁">
+          您的年龄：
+        </InputItem>
+        <InputItem
+          type="number"
+          {...getFieldProps('height', {
+            rules: [
+              {required: true, message: '请输入您的身高'},
+            ]
+          })}
+          onChange={v => this.setState({height: v})}
+          clear
+          placeholder="请输入您的身高"
+          extra="cm">
+          您的身高：
+        </InputItem>
+        <InputItem
+          type="number"
+          {...getFieldProps('weight', {
+            rules: [
+              {required: true, message: '请输入您的体重'},
+            ]
+          })}
+          onChange={v => this.setState({weight: v})}
+          clear
+          placeholder="请输入您的体重"
+          extra="kg">
+          您的体重：
+        </InputItem>
+        <Picker
+          data={generalOptions}
+          cols={1}
+          title="高血压"
+          value={this.state.selfHighPressure}
+          onChange={v => {this.setState({selfHighPressure: v})}}>
+          <Item arrow="horizontal" onClick={() => {}}>您是否曾被诊断为患高血压</Item>
         </Picker>
-        <DatePicker
-          mode="date"
-          title="选择日期"
-          extra="可选,小于结束日期"
-          {...getFieldProps('date1', { initialValue: moment() })}
-          minDate={moment('2015-08-06', 'YYYY-MM-DD')}
-          maxDate={moment('2017-12-03', 'YYYY-MM-DD')}
-        >
-          <List.Item arrow="horizontal">日期</List.Item>
-        </DatePicker>
+        <Picker
+          data={generalOptions}
+          cols={1}
+          title="高血压"
+          value={this.state.relativesHighPressure}
+          onChange={v => {this.setState({relativesHighPressure: v})}}>
+          <Item arrow="horizontal" onClick={() => {}}>您的直系亲属是否患有高血压</Item>
+        </Picker>
+
       </List>
 
-    </div>);
-  },
-});
+    </form>);
+  }
+};
 
-Test = createForm()(Test);
-export default Test;
+const TestWrapper = createForm()(Test);
+export default TestWrapper;
