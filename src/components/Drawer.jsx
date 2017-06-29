@@ -6,6 +6,7 @@ import { Drawer, List, NavBar } from 'antd-mobile';
 import Form from './FormTest';
 import Modal from './Modal';
 import Carousel from './Carousel';
+import Cancer from './Cancer';
 
 import Main from '../pages/Main';
 
@@ -48,7 +49,7 @@ class DrawerNav extends React.Component {
       >
         <Route path="/" exact component={Main} />
         <Route path="/chronic" component={Form} />
-        <Route path="/cancer" component={Modal} />
+        <Route path="/cancer" component={Cancer} />
       </Drawer>
     </div></Router>);
   }
