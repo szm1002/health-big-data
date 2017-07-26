@@ -32,16 +32,16 @@ class Test extends React.Component {
       age: '',
       height: '',
       weight: '',
-      selfHighPressure: false,
-      relativesHighPressure: false,
-      alcohol: 1,
-      smoking: 1,
-      exercise: 1,
-      diet: false,
-      diabetes: false,
-      bloodSugar: false,
-      cholesterol: false, // 胆固醇
-      triglyceride: false // 甘油三酯
+      selfHighPressure: false, // bphigh
+      relativesHighPressure: false, // qinshubp
+      alcohol: 1, // jiujing
+      smoking: 1, // xiyan
+      exercise: 1, // duanlian
+      diet: false, // xian
+      diabetes: false, // sugar
+      bloodSugar: false, // shousun
+      cholesterol: false, // 胆固醇, danguchun
+      triglyceride: false // 甘油三酯, ganyou
     };
   }
 
@@ -95,7 +95,7 @@ class Test extends React.Component {
               {required: true, message: '请输入您的年龄'},
             ]
           })}
-          onChange={v => this.setState({age: v})}
+          onBlur={v => {this.onChange('age', v)}}
           clear
           placeholder="请输入您的年龄"
           extra="岁">
@@ -108,7 +108,7 @@ class Test extends React.Component {
               {required: true, message: '请输入您的身高'},
             ]
           })}
-          onChange={v => this.setState({height: v})}
+          onBlur={v => this.onChange('height', v)}
           clear
           placeholder="请输入您的身高"
           extra="cm">
@@ -121,7 +121,7 @@ class Test extends React.Component {
               {required: true, message: '请输入您的体重'},
             ]
           })}
-          onChange={v => this.setState({weight: v})}
+          onBlur={v => this.onChange('weight', v)}
           clear
           placeholder="请输入您的体重"
           extra="kg">
@@ -219,7 +219,7 @@ class Test extends React.Component {
         }
       </List>
       <section>
-        <Button type="primary" inline style={{margin: '0.5rem 0'}} onClick={e => console.log(e)}>提交</Button>
+        <Button type="primary" inline style={{margin: '0.5rem 0'}} onClick={e => console.log(this.state)}>提交</Button>
       </section>
 
     </form>);

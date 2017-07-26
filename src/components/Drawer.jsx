@@ -4,8 +4,8 @@ import { Drawer, List, NavBar } from 'antd-mobile';
 
 // import Form from './Form';
 import Form from './FormTest';
-import Modal from './Modal';
-import Carousel from './Carousel';
+// import Modal from './Modal';
+// import Carousel from './Carousel';
 import Cancer from './Cancer';
 
 import Main from '../pages/Main';
@@ -19,7 +19,6 @@ class DrawerNav extends React.Component {
     position: 'left',
   }
   onOpenChange = (...args) => {
-    // console.log(args);
     this.setState({ open: !this.state.open });
     // this.setState({ docked: !this.state.docked });
   }
@@ -37,11 +36,11 @@ class DrawerNav extends React.Component {
       onOpenChange: this.onOpenChange,
     };
 
-    return (<Router><div>
+    return (<Router><div className="router">
       <NavBar iconName="ellipsis" onLeftClick={this.onOpenChange}>健康大数据</NavBar>
       <Drawer
         className="my-drawer"
-        style={{ minHeight: document.documentElement.clientHeight - 200 }}
+        style={{ minHeight: document.documentElement.clientHeight - 91 }}
         dragHandleStyle={{ display: 'none' }}
         contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 0 }}
         sidebar={sidebar}
