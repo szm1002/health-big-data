@@ -3,26 +3,12 @@ import moment from 'moment'; // moment.min ~= 48kb
 import { district } from 'antd-mobile-demo-data';
 
 import { Picker, DatePicker, List, Checkbox, Radio, InputItem, Button, Toast } from 'antd-mobile';
-// import enUs from 'antd-mobile/lib/date-picker/locale/en_US';
 
-// import AsyncPicker from './Picker';
+import ChronicResult from './ChronicResult';
 
 const CheckboxItem = Checkbox.CheckboxItem;
 const RadioItem = Radio.RadioItem;
 const Item = List.Item;
-
-// 如果不是使用 List.Item 作为 children
-/*const CustomChildren = (props) => {
-  return (
-    <div
-      onClick={props.onClick}
-      style={{ backgroundColor: '#fff', height: '0.9rem', lineHeight: '0.9rem', padding: '0 0.3rem' }}
-    >
-      {props.children}
-      <span style={{ float: 'right' }}>{props.extra}</span>
-    </div>
-  );
-};*/
 
 class Test extends React.Component {
     constructor(props) {
@@ -49,37 +35,6 @@ class Test extends React.Component {
     onChange(key, value) {
         this.setState({
             [key]: value
-        });
-    }
-
-    onSubmit(data) {
-        if (!data.age) {
-            Toast.fail('年龄不能为空！', 1);
-            return;
-        }
-        if (!data.height) {
-            Toast.fail('身高不能为空！', 1);
-            return;
-        }
-        if (!data.weight) {
-            Toast.fail('体重不能为空！', 1);
-            return;
-        }
-
-        const myInit = {
-            body: JSON.stringify(data),
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'x-requested-with': 'XMLHttpRequest' }
-        };
-
-        fetch('/chronic/getrisk', myInit).then(response => {
-            console.log('response', response);
-            return response.json();
-        }).then(data => {
-            console.log('responseData', data);
-        }).catch(err => {
-            console.log('err', err);
-            Toast.offline('oOps, 网络出错了，请稍后再试!', 2);
         });
     }
 
@@ -248,7 +203,7 @@ class Test extends React.Component {
                 }
             </List>
             <section>
-                <Button type="primary" inline style={{ margin: '0.5rem 0' }} onClick={() => { this.onSubmit(this.state) }}>提交</Button>
+                <ChronicResult data={this.state} />
             </section>
 
         </form>);

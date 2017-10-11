@@ -41,7 +41,8 @@ const getRisk = (req, res) => {
 
     const risk = {
         riskFactor: riskFactor,
-        riskTip: riskTip
+        riskTip: riskTip,
+        bmi: bmi
     };
     return res.json(risk);
 };
