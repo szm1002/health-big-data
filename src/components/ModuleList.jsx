@@ -21,7 +21,7 @@ export default class extends React.Component {
         return (
             <ul>
                 <Link to="/chronic"><li><img src="https://ooo.0o0.ooo/2017/06/15/59429043a6c00.jpg" /></li></Link>
-                <Link to="cancer"><li><img src="https://ooo.0o0.ooo/2017/06/15/59429043a6c00.jpg" /></li></Link>
+                <Link to="/cancer"><li><img src="https://ooo.0o0.ooo/2017/06/15/59429043a6c00.jpg" /></li></Link>
             </ul>
         );
     }

@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Drawer, List, NavBar } from 'antd-mobile';
 
 import Chronic from './Chronic';
-// import Modal from './Modal';
-// import Carousel from './Carousel';
 import Cancer from './Cancer';
+import CancerResult from './CancerResult';
 
 import Main from '../pages/Main';
 
@@ -48,6 +47,7 @@ class DrawerNav extends React.Component {
                 <Route path="/" exact component={Main} />
                 <Route path="/chronic" component={Chronic} />
                 <Route path="/cancer" component={Cancer} />
+                <Route path="/cancerresult" component={CancerResult} />
             </Drawer>
         </div></Router>);
     }

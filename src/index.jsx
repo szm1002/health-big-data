@@ -19,17 +19,17 @@ import Drawer from './components/Drawer';
 import './index.less';
 
 class App extends React.Component {
-  render() {
-    const items = [{id: '1'}, {id: 'header'}];
-    return (
-      <div className="body">
+    render() {
+        const items = [{ id: '1' }, { id: 'header' }];
+        return (
+            <div className="body">
 
-        <Drawer />
+                <Drawer />
 
-      </div>
+            </div>
 
-    );
-  }
+        );
+    }
 }
 
 ReactDOM.render(<App />, document.getElementById('example'));

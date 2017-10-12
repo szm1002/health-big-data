@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 
 const index = require('./routes/index');
 const getRisk = require('./routes/getrisk');
+const getCancer = require('./routes/getcancer');
 
 const app = express();
 
@@ -26,8 +27,10 @@ app.use(express.static('dist'));
 app.use('/', index);
 app.use('/chronic', index);
 app.use('/cancer', index);
+app.use('/cancerresult', index);
 
 app.post('/chronic/getrisk', getRisk);
+app.get('/cancer/getcancer', getCancer);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
