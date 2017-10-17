@@ -2,15 +2,15 @@ const getCancer = (req, res) => {
     const name = req.query.name;
     const uid = req.query.uid;
     const data = {
-        cancerRisk: 0.5,
-        name: name || '张三',
+        cancerRisk: 0.6,
+        name: name,
         uid: uid,
         city: '北京',
         age: 24,
         gender: 1,
-        height: 180,
-        weight: 70,
-        BMI: 25.1,
+        height: 175,
+        weight: 77,
+        BMI: 25.14,
         shousuoya: 120.0,
         shuzhangya: 80.0,
         WBC: 3.7,
