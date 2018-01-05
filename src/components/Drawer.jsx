@@ -6,7 +6,7 @@ import Chronic from './Chronic';
 import Cancer from './Cancer';
 import CancerResult from './CancerResult';
 
-import Main from '../pages/Main';
+import Main from './Main';
 
 import '../style/drawer.less';
 
