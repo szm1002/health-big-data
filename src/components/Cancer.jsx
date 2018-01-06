@@ -1,5 +1,6 @@
 
 import { List, InputItem, Button, Toast } from 'antd-mobile';
+import healthData from '../../public/assets/health-data';
 
 class Cancer extends React.Component {
     constructor(props) {
@@ -23,6 +24,18 @@ class Cancer extends React.Component {
 
     onSubmit(data) {
         console.log(data);
+        if (!data.uid) {
+            Toast.fail('体检号不能为空！', 1);
+            return;
+        }
+
+        const existedData = healthData;
+        const hasData = existedData.hasOwnProperty(data.uid);
+        if (!hasData) {
+            Toast.fail('该用户暂无体检数据，请重新输入体检编号', 3);
+            return;
+        }
+
         const myInit = {
             method: 'GET',
             headers: { 'x-requested-with': 'XMLHttpRequest' }
